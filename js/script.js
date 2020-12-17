@@ -11,20 +11,29 @@
 var app = new Vue({
   el:'#root',
   data: {
-    disc: []
+    discs: [],
+    genres: [],
+      valueGenre: '',
   },
   methods:{
 
   },
   mounted: function(){
-    var self = this,
+    var self = this;
 
     axios
-    .get('https://flynn.boolean.careers/exercises/api/array/music'),
-    .then( function(result){
+    .get('https://flynn.boolean.careers/exercises/api/array/music')
+    .then(function(result){
       self.discs = result.data.response;
       console.log(self.discs);
      }
+    );
+
+    result.data.response.forEach(
+    (element) => {
+      if (!this.genres.includes(element.genre))
+      this.genres.push(element.genre);
+      }
     );
   }
 });

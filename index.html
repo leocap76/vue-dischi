@@ -19,6 +19,10 @@
           <img src="" alt="logo">
           <h1>spotify</h1>
         </div>
+        <select v-model="valueGenre" name="">
+            <option value="">generi</option>
+            <option :value="genre" v-for="genre in genres">{{ genre }}</option>
+        </select>
       </header>
 
       <div class="cds-container container" v-if="">
@@ -27,6 +31,7 @@
           <h3>{{disc.title}}</h3>
           <span class="author">{{disc.author}}</span>
           <br><span class="year">{{disc.year}}</span>
+          <br><span class="genre">{{disc.genre}}</span>
         </div>
       </div>
     </div>
