@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+    <!-- Vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>vue Dischi</title>
+  </head>
+
+  <body>
+    <div id="root" class="container">
+
+      <header>
+        <div class="container">
+          <img src="" alt="logo">
+          <h1>spotify</h1>
+        </div>
+      </header>
+
+      <div class="cds-container container" v-if="">
+        <div v-for="disc in discs" class="cd">
+          <img :src="disc.poster" :alt="disc.title">
+          <h3>{{disc.title}}</h3>
+          <span class="author">{{disc.author}}</span>
+          <br><span class="year">{{disc.year}}</span>
+        </div>
+      </div>
+    </div>
+
+
+  <script src="js/script.js" charset="utf-8"></script>
+  </body>
+</html>
