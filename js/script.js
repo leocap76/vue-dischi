@@ -26,13 +26,17 @@ var app = new Vue({
     .then(function(result){
       self.discs = result.data.response;
       console.log(self.discs);
-     }
-    );
 
-    result.data.response.forEach(
+      selff.discs.sort( function (disc1, disc2){
+        return parseInt(disc1.year) - parseInt(disc2.year);
+      });
+      
+     });
+
+    self.discs.forEach(
     (element) => {
-      if (!this.genres.includes(element.genre))
-      this.genres.push(element.genre);
+      if (!self.genres.includes(element.genre))
+      self.genres.push(element.genre);
       }
     );
   }

@@ -19,14 +19,17 @@
           <img src="" alt="logo">
           <h1>spotify</h1>
         </div>
-        <select v-model="valueGenre" name="">
-            <option value="">generi</option>
-            <option :value="genre" v-for="genre in genres">{{ genre }}</option>
+
+        <select class="genre" name="" v-model="valueGenre">
+          <option value="">tutti i genere</option>
+          <option for="genre in genres" :value="genre">{{genre}}</option>
         </select>
+
       </header>
 
-      <div class="cds-container container" v-if="">
-        <div v-for="disc in discs" class="cd">
+      <div class="cds-container container" v-if="discs.length != 0">
+        <div v-for="disc in discs" class="cd"
+        v-if="disc.genre == valueGenre || valueGenre == ''">
           <img :src="disc.poster" :alt="disc.title">
           <h3>{{disc.title}}</h3>
           <span class="author">{{disc.author}}</span>
